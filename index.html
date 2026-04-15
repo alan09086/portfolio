@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alan Gaudet — AI &amp; Platform Engineering Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            accent: '#7c3aed',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .card { transition: transform 0.2s, box-shadow 0.2s; }
+    .skill-tag { transition: background-color 0.15s; }
+    .skill-tag:hover { background-color: #dbeafe; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+  <!-- Hero -->
+  <header class="bg-white border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6 py-16 text-center">
+      <h1 class="text-4xl font-bold mb-3">Alan Gaudet</h1>
+      <p class="text-xl text-gray-600 mb-2">AI Platform Engineering &amp; Multi-Agent Systems</p>
+      <p class="text-gray-500 mb-6">Building agentic workflows, RAG pipelines, and production-grade AI systems</p>
+      <div class="flex justify-center gap-4 flex-wrap">
+        <a href="https://codeberg.org/alan090" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 transition">Codeberg</a>
+        <a href="https://github.com/alan09086" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition">GitHub</a>
+        <a href="mailto:alan.c.gaudet@gmail.com" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+
+    <!-- Featured Project -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 gradient-text">Featured Project</h2>
+
+      <div class="card bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div class="p-8">
+          <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+            <div>
+              <h3 class="text-2xl font-bold">Supply Chain Multi-Agent System</h3>
+              <p class="text-gray-500 mt-1">LangGraph + LlamaIndex RAG + FAISS + FastAPI + Streamlit + Langfuse</p>
+            </div>
+            <div class="flex gap-2">
+              <a href="https://codeberg.org/alan090/supply-chain-agents" class="px-3 py-1 text-sm bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Codeberg</a>
+              <a href="https://github.com/alan09086/supply-chain-agents" class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition">GitHub</a>
+            </div>
+          </div>
+
+          <p class="text-gray-700 mb-6">
+            A production-grade multi-agent system for CPG supply chain optimization. Three specialized AI agents — demand forecasting, inventory optimization, and supplier risk — collaborate through a LangGraph state machine with typed state, conditional human-in-the-loop approval via <code class="text-sm bg-gray-100 px-1 rounded">interrupt()</code>, and full observability through self-hosted Langfuse.
+          </p>
+
+          <!-- Architecture Diagram -->
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 overflow-x-auto">
+            <pre class="text-sm text-gray-700 font-mono leading-relaxed">
+  Streamlit (:8501) ──&gt; FastAPI (:8000) ──&gt; LangGraph StateGraph
+                                               │
+                            ┌──────────────────┼──────────────────┐
+                            ▼                  ▼                  ▼
+                      ┌──────────┐      ┌──────────┐      ┌──────────┐
+                      │  Demand  │      │Inventory │      │ Supplier │
+                      │Forecaster│      │Optimizer │      │  Risk    │
+                      └────┬─────┘      └────┬─────┘      └────┬─────┘
+                           │                 │                  │
+                      Sales Tools      Stock Tools         RAG Pipeline
+                      (forecast,       (reorder point,    (LlamaIndex +
+                       seasonality)     interrupt())       FAISS + citations)
+                            │                │                  │
+                            └────────────────┼──────────────────┘
+                                             ▼
+                                      Synthesis Node
+                                             │
+                             ┌───────────────┼───────────────┐
+                             ▼               ▼               ▼
+                          Redis          Langfuse         Ollama
+                       (checkpointer)  (observability)   (local LLM)</pre>
+          </div>
+
+          <!-- Key Metrics -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="text-center p-3 bg-blue-50 rounded-lg">
+              <div class="text-2xl font-bold text-primary">59</div>
+              <div class="text-sm text-gray-600">Tests</div>
+            </div>
+            <div class="text-center p-3 bg-purple-50 rounded-lg">
+              <div class="text-2xl font-bold text-accent">8</div>
+              <div class="text-sm text-gray-600">Docker Services</div>
+            </div>
+            <div class="text-center p-3 bg-green-50 rounded-lg">
+              <div class="text-2xl font-bold text-green-600">3</div>
+              <div class="text-sm text-gray-600">AI Agents</div>
+            </div>
+            <div class="text-center p-3 bg-orange-50 rounded-lg">
+              <div class="text-2xl font-bold text-orange-600">9</div>
+              <div class="text-sm text-gray-600">API Endpoints</div>
+            </div>
+          </div>
+
+          <!-- Tech Tags -->
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">LangGraph</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">LlamaIndex</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">FAISS</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">sentence-transformers</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-green-50 text-green-700 rounded-full">FastAPI</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-green-50 text-green-700 rounded-full">Streamlit</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full">Docker Compose</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full">Azure Bicep</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Langfuse</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">GitHub Actions</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Python</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Pydantic</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Redis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Projects -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 gradient-text">Other Projects</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- IronTide -->
+        <div class="card bg-white rounded-xl border border-gray-200 p-6">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-lg font-bold">IronTide</h3>
+            <a href="https://codeberg.org/alan090/irontide" class="px-3 py-1 text-xs bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Source</a>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Full-featured BitTorrent client library written in Rust. 17 crates, 2200+ tests, 31 BEP protocol implementations. Demonstrates systems programming depth, async concurrency, and large-codebase architecture.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">Rust</span>
+            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">tokio</span>
+            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">17 crates</span>
+            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">2200+ tests</span>
+            <span class="px-2 py-0.5 text-xs bg-gray-100 text-gray-700 rounded-full">GitHub Actions</span>
+          </div>
+        </div>
+
+        <!-- Debt Tracker -->
+        <div class="card bg-white rounded-xl border border-gray-200 p-6">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-lg font-bold">Debt Tracker</h3>
+            <a href="https://codeberg.org/alan090/debt-tracker-kotlin" class="px-3 py-1 text-xs bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Source</a>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Android debt payoff calculator published on the Google Play Store. Kotlin + Jetpack Compose with Material 3. Demonstrates shipping a real product to production — from CI pipeline to store listing.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs bg-green-50 text-green-700 rounded-full">Kotlin</span>
+            <span class="px-2 py-0.5 text-xs bg-green-50 text-green-700 rounded-full">Jetpack Compose</span>
+            <span class="px-2 py-0.5 text-xs bg-green-50 text-green-700 rounded-full">Play Store</span>
+            <span class="px-2 py-0.5 text-xs bg-gray-100 text-gray-700 rounded-full">GitHub Actions</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Matrix -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 gradient-text">Skills &amp; Technologies</h2>
+
+      <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 border-b border-gray-200">
+            <tr>
+              <th class="px-6 py-3 text-left font-semibold text-gray-700">Category</th>
+              <th class="px-6 py-3 text-left font-semibold text-gray-700">Technologies</th>
+              <th class="px-6 py-3 text-left font-semibold text-gray-700">Demonstrated In</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr>
+              <td class="px-6 py-3 font-medium">AI / Multi-Agent</td>
+              <td class="px-6 py-3 text-gray-600">LangGraph, LangChain, prompt engineering, guardrails</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">RAG / NLP</td>
+              <td class="px-6 py-3 text-gray-600">LlamaIndex, FAISS, sentence-transformers (BERT), embeddings</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">API / Backend</td>
+              <td class="px-6 py-3 text-gray-600">FastAPI, SSE streaming, Pydantic, REST, async Python</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">Infrastructure</td>
+              <td class="px-6 py-3 text-gray-600">Docker Compose, Azure Bicep, Container Apps, ACR</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">MLOps</td>
+              <td class="px-6 py-3 text-gray-600">Langfuse (self-hosted), structured prompt versioning, tracing</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">CI/CD</td>
+              <td class="px-6 py-3 text-gray-600">GitHub Actions, pytest, mypy (strict), ruff</td>
+              <td class="px-6 py-3 text-gray-500">All projects</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">Systems</td>
+              <td class="px-6 py-3 text-gray-600">Rust, async (tokio), protocol implementation, 17-crate workspace</td>
+              <td class="px-6 py-3 text-gray-500">IronTide</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">Mobile</td>
+              <td class="px-6 py-3 text-gray-600">Kotlin, Jetpack Compose, Material 3, Google Play Store</td>
+              <td class="px-6 py-3 text-gray-500">Debt Tracker</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 py-8">
+    <div class="max-w-5xl mx-auto px-6 text-center text-gray-500 text-sm">
+      <p>Alan Gaudet &mdash; alan.c.gaudet@gmail.com</p>
+      <p class="mt-1">
+        <a href="https://codeberg.org/alan090" class="hover:text-primary transition">Codeberg</a>
+        &middot;
+        <a href="https://github.com/alan09086" class="hover:text-primary transition">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
