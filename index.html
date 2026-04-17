@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alan Gaudet — AI &amp; Platform Engineering Portfolio</title>
+  <title>Alan Gaudet — AI, Systems, and Platform Engineering</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -12,16 +12,23 @@
           colors: {
             primary: '#2563eb',
             accent: '#7c3aed',
+            signal: '#dc2626',
           }
         }
       }
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
     body { font-family: 'Inter', sans-serif; }
+    pre, code { font-family: 'JetBrains Mono', monospace; }
     .gradient-text {
       background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .signal-gradient {
+      background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -29,6 +36,10 @@
     .card { transition: transform 0.2s, box-shadow 0.2s; }
     .skill-tag { transition: background-color 0.15s; }
     .skill-tag:hover { background-color: #dbeafe; }
+    .signal-card {
+      background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+      border: 1px solid #fecaca;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
@@ -36,10 +47,13 @@
   <!-- Hero -->
   <header class="bg-white border-b border-gray-200">
     <div class="max-w-5xl mx-auto px-6 py-16 text-center">
-      <h1 class="text-4xl font-bold mb-3">Alan Gaudet</h1>
-      <p class="text-xl text-gray-600 mb-2">AI Platform Engineering &amp; Multi-Agent Systems</p>
-      <p class="text-gray-500 mb-6">Building agentic workflows, RAG pipelines, and production-grade AI systems</p>
-      <div class="flex justify-center gap-4 flex-wrap">
+      <h1 class="text-4xl md:text-5xl font-bold mb-3">Alan Gaudet</h1>
+      <p class="text-xl text-gray-600 mb-2">AI Platform Engineering · Multi-Agent Systems · Systems Programming</p>
+      <p class="text-gray-500 mb-6 max-w-2xl mx-auto">
+        Agentic workflows, RAG pipelines, and production-grade systems built end-to-end —
+        from libtorrent-parity Rust engines to industrial PLC AI troubleshooters.
+      </p>
+      <div class="flex justify-center gap-3 flex-wrap">
         <a href="https://codeberg.org/alan090" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 transition">Codeberg</a>
         <a href="https://github.com/alan09086" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition">GitHub</a>
         <a href="mailto:alan.c.gaudet@gmail.com" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Contact</a>
@@ -49,16 +63,54 @@
 
   <main class="max-w-5xl mx-auto px-6 py-12">
 
-    <!-- Featured Project -->
+    <!-- The Signal -->
     <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-6 gradient-text">Featured Project</h2>
+      <div class="signal-card rounded-xl p-8">
+        <div class="flex items-start gap-3 mb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-signal bg-white px-2 py-1 rounded border border-red-200">The Signal</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+          A <span class="signal-gradient">libtorrent-parity</span> Rust engine in under two months.
+        </h2>
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+          <strong>libtorrent-rasterbar</strong> has been the reference BitTorrent C++ library for <strong>15+ years</strong>, authored by
+          <strong>dozens of contributors</strong>. <a href="https://codeberg.org/alan090/irontide" class="text-primary hover:underline font-semibold">IronTide</a>
+          reimplements that feature surface from scratch in Rust — 31 BEP protocols, full v1 + v2 support, io_uring zero-copy pipeline, a 17-crate workspace, and 2,300+ tests — in a solo 8-week sprint, nights and weekends.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="bg-white rounded-lg p-3 border border-red-100">
+            <div class="text-2xl font-bold text-signal">8 wks</div>
+            <div class="text-xs text-gray-600 mt-0.5">Solo build time</div>
+          </div>
+          <div class="bg-white rounded-lg p-3 border border-red-100">
+            <div class="text-2xl font-bold text-signal">31</div>
+            <div class="text-xs text-gray-600 mt-0.5">BEPs implemented</div>
+          </div>
+          <div class="bg-white rounded-lg p-3 border border-red-100">
+            <div class="text-2xl font-bold text-signal">~80K</div>
+            <div class="text-xs text-gray-600 mt-0.5">Lines of Rust</div>
+          </div>
+          <div class="bg-white rounded-lg p-3 border border-red-100">
+            <div class="text-2xl font-bold text-signal">2,312</div>
+            <div class="text-xs text-gray-600 mt-0.5">Tests, zero clippy</div>
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 mt-4 italic">
+          For comparison: libtorrent-rasterbar's git log shows ~11,000 commits from 2003 onward across 200+ contributors. This is what 8 weeks of disciplined milestone-driven engineering looks like.
+        </p>
+      </div>
+    </section>
+
+    <!-- Featured: Supply Chain Agents -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 gradient-text">Capstone: Supply Chain Multi-Agent System</h2>
 
       <div class="card bg-white rounded-xl border border-gray-200 overflow-hidden">
         <div class="p-8">
           <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
             <div>
               <h3 class="text-2xl font-bold">Supply Chain Multi-Agent System</h3>
-              <p class="text-gray-500 mt-1">LangGraph + LlamaIndex RAG + FAISS + FastAPI + Streamlit + Langfuse</p>
+              <p class="text-gray-500 mt-1">LangGraph · LlamaIndex · FAISS · FastAPI · Streamlit · Langfuse</p>
             </div>
             <div class="flex gap-2">
               <a href="https://codeberg.org/alan090/supply-chain-agents" class="px-3 py-1 text-sm bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Codeberg</a>
@@ -67,19 +119,22 @@
           </div>
 
           <p class="text-gray-700 mb-6">
-            A production-grade multi-agent system for CPG supply chain optimization. Three specialized AI agents — demand forecasting, inventory optimization, and supplier risk — collaborate through a LangGraph state machine with typed state, conditional human-in-the-loop approval via <code class="text-sm bg-gray-100 px-1 rounded">interrupt()</code>, and full observability through self-hosted Langfuse.
+            A production-grade multi-agent system for CPG supply chain optimization. Three specialized AI agents —
+            demand forecasting, inventory optimization, and supplier risk — collaborate through a LangGraph state
+            machine with typed state, conditional human-in-the-loop approval via
+            <code class="text-sm bg-gray-100 px-1 rounded">interrupt()</code>, and full observability through
+            self-hosted Langfuse.
           </p>
 
-          <!-- Architecture Diagram -->
           <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 overflow-x-auto">
-            <pre class="text-sm text-gray-700 font-mono leading-relaxed">
+            <pre class="text-sm text-gray-700 leading-relaxed">
   Streamlit (:8501) ──&gt; FastAPI (:8000) ──&gt; LangGraph StateGraph
                                                │
                             ┌──────────────────┼──────────────────┐
                             ▼                  ▼                  ▼
                       ┌──────────┐      ┌──────────┐      ┌──────────┐
                       │  Demand  │      │Inventory │      │ Supplier │
-                      │Forecaster│      │Optimizer │      │  Risk    │
+                      │Forecaster│      │Optimizer │      │   Risk   │
                       └────┬─────┘      └────┬─────┘      └────┬─────┘
                            │                 │                  │
                       Sales Tools      Stock Tools         RAG Pipeline
@@ -96,27 +151,25 @@
                        (checkpointer)  (observability)   (local LLM)</pre>
           </div>
 
-          <!-- Key Metrics -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div class="text-center p-3 bg-blue-50 rounded-lg">
-              <div class="text-2xl font-bold text-primary">59</div>
-              <div class="text-sm text-gray-600">Tests</div>
+              <div class="text-2xl font-bold text-primary">41</div>
+              <div class="text-sm text-gray-600">Tests passing</div>
             </div>
             <div class="text-center p-3 bg-purple-50 rounded-lg">
               <div class="text-2xl font-bold text-accent">8</div>
-              <div class="text-sm text-gray-600">Docker Services</div>
+              <div class="text-sm text-gray-600">Docker services</div>
             </div>
             <div class="text-center p-3 bg-green-50 rounded-lg">
               <div class="text-2xl font-bold text-green-600">3</div>
-              <div class="text-sm text-gray-600">AI Agents</div>
+              <div class="text-sm text-gray-600">AI agents</div>
             </div>
             <div class="text-center p-3 bg-orange-50 rounded-lg">
               <div class="text-2xl font-bold text-orange-600">9</div>
-              <div class="text-sm text-gray-600">API Endpoints</div>
+              <div class="text-sm text-gray-600">API endpoints</div>
             </div>
           </div>
 
-          <!-- Tech Tags -->
           <div class="flex flex-wrap gap-2">
             <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">LangGraph</span>
             <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">LlamaIndex</span>
@@ -137,44 +190,253 @@
       </div>
     </section>
 
+    <!-- Featured: Rung Reader -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 gradient-text">Industrial AI: Rung Reader</h2>
+
+      <div class="card bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div class="p-8">
+          <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+            <div>
+              <h3 class="text-2xl font-bold">Rung Reader</h3>
+              <p class="text-gray-500 mt-1">AI-powered Allen-Bradley PLC ladder logic troubleshooter</p>
+            </div>
+            <div class="flex gap-2">
+              <a href="https://codeberg.org/alan090/rung-reader" class="px-3 py-1 text-sm bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Codeberg</a>
+            </div>
+          </div>
+
+          <p class="text-gray-700 mb-4">
+            When a PLC faults on a production line, an operator reads ladder logic in Studio 5000, traces back from
+            a failed output through every condition until they find the false rung, then walks the floor checking
+            sensors and wires. <strong>Rung Reader automates the trace</strong> — given an L5X export and live tag
+            values, it produces the root-cause analysis a senior maintenance tech would, narrates it in plain
+            English, surfaces relevant SOPs from a plant document corpus, and proactively flags anomalies.
+          </p>
+
+          <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6 rounded">
+            <p class="text-sm text-amber-900">
+              <strong>Design principle:</strong> The core trace is <em>deterministic</em> — a pure-function rung
+              walker on the L5X AST. The LLM only narrates what the walker found; it never reasons about ladder
+              semantics from scratch. During the M0 spike, <code class="bg-white px-1 rounded">llama3.1:8b</code>
+              claimed <code class="bg-white px-1 rounded">XIC</code> means "not in contact" (it actually means
+              "examine if closed"). LLMs hallucinate domain knowledge; the walker doesn't.
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 overflow-x-auto">
+            <pre class="text-sm text-gray-700 leading-relaxed">
+  L5X file ──► Parser ──► Walker ──┐
+                                    ├──► LangGraph ──► Explanation
+  Live PLC ──► Tag Resolver ───────┘                   + SOP refs
+                                    ▲
+                    RAG ────────────┘  (FAISS + MiniLM-L6-v2)
+                    Anomaly Detector ──► Proactive alerts (arq worker)</pre>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="text-center p-3 bg-blue-50 rounded-lg">
+              <div class="text-2xl font-bold text-primary">1,053</div>
+              <div class="text-sm text-gray-600">Tests green</div>
+            </div>
+            <div class="text-center p-3 bg-purple-50 rounded-lg">
+              <div class="text-2xl font-bold text-accent">14</div>
+              <div class="text-sm text-gray-600">Planned milestones</div>
+            </div>
+            <div class="text-center p-3 bg-green-50 rounded-lg">
+              <div class="text-2xl font-bold text-green-600">v0.3</div>
+              <div class="text-sm text-gray-600">Current release</div>
+            </div>
+            <div class="text-center p-3 bg-orange-50 rounded-lg">
+              <div class="text-2xl font-bold text-orange-600">On-prem</div>
+              <div class="text-sm text-gray-600">Zero cloud deps</div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-6 text-sm">
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div class="font-semibold mb-1 text-gray-800">Non-negotiable constraints</div>
+              <ul class="text-gray-600 space-y-1 list-disc pl-5">
+                <li>Read-only PLC access — never writes to hardware</li>
+                <li>Local LLM (Ollama), local RAG (FAISS), no cloud</li>
+                <li>Graceful degradation without LLM, PLC, or Redis</li>
+                <li>Mock everything in CI — no hardware required</li>
+              </ul>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div class="font-semibold mb-1 text-gray-800">Architecture layers</div>
+              <ul class="text-gray-600 space-y-1 list-disc pl-5">
+                <li>Parser: lxml + pydantic → L5X AST</li>
+                <li>Walker: pure-function rung trace</li>
+                <li>Tags: pycomm3 (mock-swappable driver)</li>
+                <li>AI: LangGraph multi-node graph with interrupts</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">LangGraph</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">LlamaIndex</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">FAISS</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">sentence-transformers</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-green-50 text-green-700 rounded-full">FastAPI SSE</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-green-50 text-green-700 rounded-full">Streamlit + agraph</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-yellow-50 text-yellow-700 rounded-full">pycomm3 (CIP)</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-yellow-50 text-yellow-700 rounded-full">Allen-Bradley L5X</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full">arq + Redis</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Langfuse</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Ollama (on-prem)</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Python 3.12+</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Pydantic v2</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">mypy strict</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured: IronTide -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6 gradient-text">Systems: IronTide</h2>
+
+      <div class="card bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div class="p-8">
+          <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+            <div>
+              <h3 class="text-2xl font-bold">IronTide</h3>
+              <p class="text-gray-500 mt-1">From-scratch Rust BitTorrent engine — libtorrent-rasterbar feature parity</p>
+            </div>
+            <div class="flex gap-2">
+              <a href="https://codeberg.org/alan090/irontide" class="px-3 py-1 text-sm bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Codeberg</a>
+              <a href="https://github.com/alan09086/irontide" class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition">GitHub</a>
+            </div>
+          </div>
+
+          <p class="text-gray-700 mb-4">
+            A full BitTorrent engine written in Rust from first principles, targeting parity with
+            <a href="https://libtorrent.org" class="text-primary hover:underline">libtorrent-rasterbar</a> — the
+            15-year C++ reference library behind qBittorrent, Deluge, and Transmission. IronTide ships a 17-crate
+            modular workspace, 31 BEP protocol implementations, async actor architecture (tokio
+            <code class="text-sm bg-gray-100 px-1 rounded">select!</code> loops with backpressure), pluggable
+            backends for crypto and disk I/O, a Slint desktop GUI, and an axum HTTP REST API with an HTMX web UI.
+          </p>
+
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 overflow-x-auto">
+            <pre class="text-sm text-gray-700 leading-relaxed">
+  CLI ── irontide-gui (Slint) ── Web UI (HTMX) ──► axum HTTP API (20 endpoints)
+                                                          │
+                                                          ▼
+                                                   SessionActor
+                                          ┌───────────────┼───────────────┐
+                                          ▼               ▼               ▼
+                                    TorrentActor      DhtActor       TrackerPool
+                                          │               │               │
+                       ┌──────────────────┼───────────────┼───────────────┘
+                       ▼                  ▼               ▼
+                  Peer swarm         Mainline DHT    HTTP/UDP trackers
+                  (choke algorithm,  (BEP 5/33/42/   (BEP 7/23/41)
+                   BitTorrent v1+v2)  Kademlia)
+                       │
+                       ▼
+            Piece picker ──► Zero-copy pipeline ──► io_uring writes
+            (rarest-first,   (mmap or POSIX)      (63 MB/s cold-start)
+             endgame mode)</pre>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="text-center p-3 bg-blue-50 rounded-lg">
+              <div class="text-2xl font-bold text-primary">17</div>
+              <div class="text-sm text-gray-600">Crates in workspace</div>
+            </div>
+            <div class="text-center p-3 bg-purple-50 rounded-lg">
+              <div class="text-2xl font-bold text-accent">31</div>
+              <div class="text-sm text-gray-600">BEPs implemented</div>
+            </div>
+            <div class="text-center p-3 bg-green-50 rounded-lg">
+              <div class="text-2xl font-bold text-green-600">2,312</div>
+              <div class="text-sm text-gray-600">Tests, 0 clippy</div>
+            </div>
+            <div class="text-center p-3 bg-orange-50 rounded-lg">
+              <div class="text-2xl font-bold text-orange-600">63 MB/s</div>
+              <div class="text-sm text-gray-600">Cold-start throughput</div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-6 text-sm">
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div class="font-semibold mb-1 text-gray-800">Protocol breadth</div>
+              <ul class="text-gray-600 space-y-1 list-disc pl-5">
+                <li>Full BitTorrent v1 + v2 (BEP 52 Merkle)</li>
+                <li>Base protocol, DHT, PEX, uTP, tracker extensions</li>
+                <li>UDP tracker, HTTP tracker, magnet URIs, hybrid torrents</li>
+              </ul>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+              <div class="font-semibold mb-1 text-gray-800">Engineering depth</div>
+              <ul class="text-gray-600 space-y-1 list-disc pl-5">
+                <li>Lock-free dispatch, zero-copy piece pipeline</li>
+                <li>Pluggable crypto (AWS-LC / ring / OpenSSL)</li>
+                <li>Pluggable disk I/O (POSIX / io_uring / IOCP / mmap)</li>
+                <li>Deterministic in-process swarm simulation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Rust 2024</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">tokio</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">async actors</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">io_uring</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Slint GUI</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-green-50 text-green-700 rounded-full">axum</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-green-50 text-green-700 rounded-full">HTMX</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">31 BEPs</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">BitTorrent v1+v2</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full">Mainline DHT</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full">17-crate workspace</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">GitHub Actions</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Zero clippy warnings</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Other Projects -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold mb-6 gradient-text">Other Projects</h2>
 
       <div class="grid md:grid-cols-2 gap-6">
 
-        <!-- IronTide -->
-        <div class="card bg-white rounded-xl border border-gray-200 p-6">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="text-lg font-bold">IronTide</h3>
-            <a href="https://codeberg.org/alan090/irontide" class="px-3 py-1 text-xs bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Source</a>
-          </div>
-          <p class="text-gray-600 text-sm mb-4">
-            Full-featured BitTorrent client library written in Rust. 17 crates, 2200+ tests, 31 BEP protocol implementations. Demonstrates systems programming depth, async concurrency, and large-codebase architecture.
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">Rust</span>
-            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">tokio</span>
-            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">17 crates</span>
-            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">2200+ tests</span>
-            <span class="px-2 py-0.5 text-xs bg-gray-100 text-gray-700 rounded-full">GitHub Actions</span>
-          </div>
-        </div>
-
-        <!-- Debt Tracker -->
         <div class="card bg-white rounded-xl border border-gray-200 p-6">
           <div class="flex items-start justify-between mb-3">
             <h3 class="text-lg font-bold">Debt Tracker</h3>
             <a href="https://codeberg.org/alan090/debt-tracker-kotlin" class="px-3 py-1 text-xs bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Source</a>
           </div>
           <p class="text-gray-600 text-sm mb-4">
-            Android debt payoff calculator published on the Google Play Store. Kotlin + Jetpack Compose with Material 3. Demonstrates shipping a real product to production — from CI pipeline to store listing.
+            Android debt payoff calculator published on the Google Play Store. Kotlin + Jetpack Compose with
+            Material 3. Demonstrates shipping a real product to production — from CI pipeline to store listing.
           </p>
           <div class="flex flex-wrap gap-1.5">
             <span class="px-2 py-0.5 text-xs bg-green-50 text-green-700 rounded-full">Kotlin</span>
             <span class="px-2 py-0.5 text-xs bg-green-50 text-green-700 rounded-full">Jetpack Compose</span>
             <span class="px-2 py-0.5 text-xs bg-green-50 text-green-700 rounded-full">Play Store</span>
             <span class="px-2 py-0.5 text-xs bg-gray-100 text-gray-700 rounded-full">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="card bg-white rounded-xl border border-gray-200 p-6">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-lg font-bold">Claude Code Telegram Bridge</h3>
+            <a href="https://github.com/alan09086/claude-code-telegram-rs" class="px-3 py-1 text-xs bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Source</a>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Rust Telegram bot that bridges Claude Code sessions to mobile — runs as a systemd service, persists
+            session state, and forwards agent output with context-aware formatting.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">Rust</span>
+            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">tokio</span>
+            <span class="px-2 py-0.5 text-xs bg-orange-50 text-orange-700 rounded-full">teloxide</span>
+            <span class="px-2 py-0.5 text-xs bg-gray-100 text-gray-700 rounded-full">systemd</span>
           </div>
         </div>
 
@@ -197,43 +459,48 @@
           <tbody class="divide-y divide-gray-100">
             <tr>
               <td class="px-6 py-3 font-medium">AI / Multi-Agent</td>
-              <td class="px-6 py-3 text-gray-600">LangGraph, LangChain, prompt engineering, guardrails</td>
-              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+              <td class="px-6 py-3 text-gray-600">LangGraph, LangChain, prompt engineering, guardrails, human-in-the-loop interrupts</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader</td>
             </tr>
             <tr>
               <td class="px-6 py-3 font-medium">RAG / NLP</td>
-              <td class="px-6 py-3 text-gray-600">LlamaIndex, FAISS, PyTorch, sentence-transformers (BERT), embeddings</td>
-              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+              <td class="px-6 py-3 text-gray-600">LlamaIndex, FAISS, PyTorch, sentence-transformers (BERT), embeddings, citations</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader</td>
             </tr>
             <tr>
               <td class="px-6 py-3 font-medium">API / Backend</td>
-              <td class="px-6 py-3 text-gray-600">FastAPI, SSE streaming, Pydantic, REST, async Python</td>
-              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+              <td class="px-6 py-3 text-gray-600">FastAPI, SSE streaming, Pydantic, REST, async Python, axum (Rust), WebSocket</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader, IronTide</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">Industrial / OT</td>
+              <td class="px-6 py-3 text-gray-600">Allen-Bradley L5X, pycomm3 (CIP), PLC tag I/O, ladder logic semantics</td>
+              <td class="px-6 py-3 text-gray-500">Rung Reader</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-medium">Systems / Rust</td>
+              <td class="px-6 py-3 text-gray-600">Rust 2024, tokio, async actors, io_uring, zero-copy pipelines, 17-crate workspace, BitTorrent v1+v2</td>
+              <td class="px-6 py-3 text-gray-500">IronTide, Claude Code Telegram</td>
             </tr>
             <tr>
               <td class="px-6 py-3 font-medium">Infrastructure</td>
-              <td class="px-6 py-3 text-gray-600">Docker Compose, Azure Bicep, Container Apps, ACR</td>
-              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+              <td class="px-6 py-3 text-gray-600">Docker Compose, Azure Bicep, Container Apps, ACR, Redis, on-prem deployment</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader</td>
             </tr>
             <tr>
-              <td class="px-6 py-3 font-medium">MLOps</td>
-              <td class="px-6 py-3 text-gray-600">Langfuse (self-hosted), structured prompt versioning, tracing</td>
-              <td class="px-6 py-3 text-gray-500">Supply Chain Agents</td>
+              <td class="px-6 py-3 font-medium">MLOps / Observability</td>
+              <td class="px-6 py-3 text-gray-600">Langfuse (self-hosted), structured prompt versioning, tracing, fail-silent callbacks</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader</td>
             </tr>
             <tr>
-              <td class="px-6 py-3 font-medium">CI/CD</td>
-              <td class="px-6 py-3 text-gray-600">GitHub Actions, pytest, mypy (strict), ruff</td>
+              <td class="px-6 py-3 font-medium">CI/CD &amp; Quality</td>
+              <td class="px-6 py-3 text-gray-600">GitHub Actions, pytest, mypy strict, ruff, cargo clippy (zero warnings)</td>
               <td class="px-6 py-3 text-gray-500">All projects</td>
             </tr>
             <tr>
-              <td class="px-6 py-3 font-medium">Systems</td>
-              <td class="px-6 py-3 text-gray-600">Rust, async (tokio), protocol implementation, 17-crate workspace</td>
-              <td class="px-6 py-3 text-gray-500">IronTide</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-3 font-medium">Mobile</td>
-              <td class="px-6 py-3 text-gray-600">Kotlin, Jetpack Compose, Material 3, Google Play Store</td>
-              <td class="px-6 py-3 text-gray-500">Debt Tracker</td>
+              <td class="px-6 py-3 font-medium">Frontend / UI</td>
+              <td class="px-6 py-3 text-gray-600">Streamlit, Slint (native Rust GUI), HTMX, Jetpack Compose, Material 3</td>
+              <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader, IronTide, Debt Tracker</td>
             </tr>
           </tbody>
         </table>
