@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alan Gaudet — AI, Systems, and Platform Engineering</title>
+  <title>Alan Gaudet — Agentic AI & Platform Engineering</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -12,7 +12,6 @@
           colors: {
             primary: '#2563eb',
             accent: '#7c3aed',
-            signal: '#dc2626',
           }
         }
       }
@@ -27,18 +26,15 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .signal-gradient {
-      background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
     .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
     .card { transition: transform 0.2s, box-shadow 0.2s; }
     .skill-tag { transition: background-color 0.15s; }
     .skill-tag:hover { background-color: #dbeafe; }
-    .signal-card {
-      background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
-      border: 1px solid #fecaca;
+    .demo-frame {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f9fafb;
     }
   </style>
 </head>
@@ -48,10 +44,10 @@
   <header class="bg-white border-b border-gray-200">
     <div class="max-w-5xl mx-auto px-6 py-16 text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-3">Alan Gaudet</h1>
-      <p class="text-xl text-gray-600 mb-2">AI Platform Engineering · Multi-Agent Systems · Systems Programming</p>
+      <p class="text-xl text-gray-600 mb-2">Agentic AI · Multi-Agent Systems · Platform Engineering</p>
       <p class="text-gray-500 mb-6 max-w-2xl mx-auto">
-        Agentic workflows, RAG pipelines, and production-grade systems built end-to-end —
-        from libtorrent-parity Rust engines to industrial PLC AI troubleshooters.
+        LangGraph multi-agent systems, LlamaIndex RAG pipelines, self-hosted Langfuse observability, and
+        Azure IaC — built end-to-end with production-grade test discipline.
       </p>
       <div class="flex justify-center gap-3 flex-wrap">
         <a href="https://codeberg.org/alan090" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 transition">Codeberg</a>
@@ -63,45 +59,7 @@
 
   <main class="max-w-5xl mx-auto px-6 py-12">
 
-    <!-- The Signal -->
-    <section class="mb-16">
-      <div class="signal-card rounded-xl p-8">
-        <div class="flex items-start gap-3 mb-4">
-          <span class="text-xs font-bold uppercase tracking-wider text-signal bg-white px-2 py-1 rounded border border-red-200">The Signal</span>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-          A <span class="signal-gradient">libtorrent-parity</span> Rust engine in under two months.
-        </h2>
-        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-          <strong>libtorrent-rasterbar</strong> has been the reference BitTorrent C++ library for <strong>15+ years</strong>, authored by
-          <strong>dozens of contributors</strong>. <a href="https://codeberg.org/alan090/irontide" class="text-primary hover:underline font-semibold">IronTide</a>
-          reimplements that feature surface from scratch in Rust — 31 BEP protocols, full v1 + v2 support, io_uring zero-copy pipeline, a 17-crate workspace, and 2,300+ tests — in a solo 8-week sprint, nights and weekends.
-        </p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div class="bg-white rounded-lg p-3 border border-red-100">
-            <div class="text-2xl font-bold text-signal">8 wks</div>
-            <div class="text-xs text-gray-600 mt-0.5">Solo build time</div>
-          </div>
-          <div class="bg-white rounded-lg p-3 border border-red-100">
-            <div class="text-2xl font-bold text-signal">31</div>
-            <div class="text-xs text-gray-600 mt-0.5">BEPs implemented</div>
-          </div>
-          <div class="bg-white rounded-lg p-3 border border-red-100">
-            <div class="text-2xl font-bold text-signal">~80K</div>
-            <div class="text-xs text-gray-600 mt-0.5">Lines of Rust</div>
-          </div>
-          <div class="bg-white rounded-lg p-3 border border-red-100">
-            <div class="text-2xl font-bold text-signal">2,312</div>
-            <div class="text-xs text-gray-600 mt-0.5">Tests, zero clippy</div>
-          </div>
-        </div>
-        <p class="text-sm text-gray-500 mt-4 italic">
-          For comparison: libtorrent-rasterbar's git log shows ~11,000 commits from 2003 onward across 200+ contributors. This is what 8 weeks of disciplined milestone-driven engineering looks like.
-        </p>
-      </div>
-    </section>
-
-    <!-- Featured: Supply Chain Agents -->
+    <!-- Capstone: Supply Chain Agents -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold mb-6 gradient-text">Capstone: Supply Chain Multi-Agent System</h2>
 
@@ -110,7 +68,7 @@
           <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
             <div>
               <h3 class="text-2xl font-bold">Supply Chain Multi-Agent System</h3>
-              <p class="text-gray-500 mt-1">LangGraph · LlamaIndex · FAISS · FastAPI · Streamlit · Langfuse</p>
+              <p class="text-gray-500 mt-1">LangGraph · LlamaIndex · FAISS · FastAPI · Streamlit · Langfuse · Ollama</p>
             </div>
             <div class="flex gap-2">
               <a href="https://codeberg.org/alan090/supply-chain-agents" class="px-3 py-1 text-sm bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Codeberg</a>
@@ -118,14 +76,26 @@
             </div>
           </div>
 
+          <!-- Live demo GIF -->
+          <figure class="demo-frame mb-6">
+            <img src="assets/supply-chain-demo.gif"
+                 alt="Streamlit chat UI demo: demand forecast → inventory lookup → supplier RAG with citations → reorder-point query triggering human approval → synthesised response"
+                 class="w-full h-auto block">
+            <figcaption class="text-xs text-gray-500 px-4 py-2 border-t border-gray-200 bg-white">
+              4-query walk-through recorded via Playwright. Loading spinners compressed 6× in post so the full flow fits in ≈30 s; user-action and response-visible segments play at 1×.
+              Local inference on <code>qwen2.5:3b</code> via Ollama (1050 Ti, ~2 GB VRAM).
+            </figcaption>
+          </figure>
+
           <p class="text-gray-700 mb-6">
-            A production-grade multi-agent system for CPG supply chain optimization. Three specialized AI agents —
-            demand forecasting, inventory optimization, and supplier risk — collaborate through a LangGraph state
-            machine with typed state, conditional human-in-the-loop approval via
-            <code class="text-sm bg-gray-100 px-1 rounded">interrupt()</code>, and full observability through
-            self-hosted Langfuse.
+            Three specialist agents — demand forecasting, inventory optimisation, and supplier risk —
+            collaborate through a LangGraph <code class="text-sm bg-gray-100 px-1 rounded">StateGraph</code>
+            with typed state, conditional human-in-the-loop approval via
+            <code class="text-sm bg-gray-100 px-1 rounded">interrupt()</code>, and full observability
+            through self-hosted Langfuse. Real-LLM integration tests gate every merge.
           </p>
 
+          <!-- Architecture diagram -->
           <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 overflow-x-auto">
             <pre class="text-sm text-gray-700 leading-relaxed">
   Streamlit (:8501) ──&gt; FastAPI (:8000) ──&gt; LangGraph StateGraph
@@ -153,21 +123,74 @@
 
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div class="text-center p-3 bg-blue-50 rounded-lg">
-              <div class="text-2xl font-bold text-primary">41</div>
-              <div class="text-sm text-gray-600">Tests passing</div>
+              <div class="text-2xl font-bold text-primary">83&nbsp;+&nbsp;5</div>
+              <div class="text-sm text-gray-600">Unit + real-LLM tests</div>
             </div>
             <div class="text-center p-3 bg-purple-50 rounded-lg">
-              <div class="text-2xl font-bold text-accent">8</div>
+              <div class="text-2xl font-bold text-accent">9</div>
               <div class="text-sm text-gray-600">Docker services</div>
             </div>
             <div class="text-center p-3 bg-green-50 rounded-lg">
               <div class="text-2xl font-bold text-green-600">3</div>
-              <div class="text-sm text-gray-600">AI agents</div>
+              <div class="text-sm text-gray-600">Specialist agents</div>
             </div>
             <div class="text-center p-3 bg-orange-50 rounded-lg">
-              <div class="text-2xl font-bold text-orange-600">9</div>
-              <div class="text-sm text-gray-600">API endpoints</div>
+              <div class="text-2xl font-bold text-orange-600">5</div>
+              <div class="text-sm text-gray-600">Bicep modules (Azure)</div>
             </div>
+          </div>
+
+          <!-- Model benchmark -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 mb-2">Model benchmark (canonical query set, 1050 Ti demo box)</h4>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                <thead class="bg-gray-50 border-b border-gray-200">
+                  <tr>
+                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Model</th>
+                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Avg&nbsp;latency</th>
+                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Intent&nbsp;accuracy</th>
+                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Citations</th>
+                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Injection&nbsp;leak</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                  <tr class="bg-blue-50/40">
+                    <td class="px-4 py-2"><code>qwen2.5:3b</code> <span class="text-xs text-blue-700 font-semibold">(demo default)</span></td>
+                    <td class="px-4 py-2 font-semibold">19.8&nbsp;s</td>
+                    <td class="px-4 py-2">3 / 3</td>
+                    <td class="px-4 py-2">3</td>
+                    <td class="px-4 py-2">2 markers (paraphrase)</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2"><code>llama3.1:8b</code> <span class="text-xs text-gray-500">(quality mode)</span></td>
+                    <td class="px-4 py-2">58.0&nbsp;s</td>
+                    <td class="px-4 py-2">3 / 3</td>
+                    <td class="px-4 py-2">3</td>
+                    <td class="px-4 py-2">3 markers (<strong>full prompt verbatim</strong>)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">
+              Both models leak prompt fragments on direct injection — a gap that mock-LLM tests could not detect.
+              Production workloads need an output-layer guardrail on top of prompt-level rules. See
+              <a href="https://github.com/alan09086/supply-chain-agents/blob/main/docs/benchmarks/latest.md"
+                 class="text-primary hover:underline">full benchmark report</a>.
+            </p>
+          </div>
+
+          <!-- Langfuse screenshot -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 mb-2">Self-hosted observability</h4>
+            <figure class="demo-frame">
+              <img src="assets/supply-chain-langfuse.png"
+                   alt="Self-hosted Langfuse v3.169 dashboard showing the Supply Chain Agents project in Tracing view"
+                   class="w-full h-auto block">
+              <figcaption class="text-xs text-gray-500 px-4 py-2 border-t border-gray-200 bg-white">
+                Full 9-service Docker Compose stack: FastAPI + Streamlit + Redis + Langfuse (web, worker, Postgres, ClickHouse, Redis, MinIO for S3 event uploads).
+              </figcaption>
+            </figure>
           </div>
 
           <div class="flex flex-wrap gap-2">
@@ -180,11 +203,13 @@
             <span class="skill-tag px-3 py-1 text-sm bg-green-50 text-green-700 rounded-full">Streamlit</span>
             <span class="skill-tag px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full">Docker Compose</span>
             <span class="skill-tag px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full">Azure Bicep</span>
-            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Langfuse</span>
-            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">GitHub Actions</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Langfuse (self-hosted)</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Ollama</span>
             <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Python</span>
             <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Pydantic</span>
             <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Redis</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">mypy --strict</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">GitHub Actions</span>
           </div>
         </div>
       </div>
@@ -236,7 +261,7 @@
 
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div class="text-center p-3 bg-blue-50 rounded-lg">
-              <div class="text-2xl font-bold text-primary">1,053</div>
+              <div class="text-2xl font-bold text-primary">1,138</div>
               <div class="text-sm text-gray-600">Tests green</div>
             </div>
             <div class="text-center p-3 bg-purple-50 rounded-lg">
@@ -244,7 +269,7 @@
               <div class="text-sm text-gray-600">Planned milestones</div>
             </div>
             <div class="text-center p-3 bg-green-50 rounded-lg">
-              <div class="text-2xl font-bold text-green-600">v0.3</div>
+              <div class="text-2xl font-bold text-green-600">v0.5</div>
               <div class="text-sm text-gray-600">Current release</div>
             </div>
             <div class="text-center p-3 bg-orange-50 rounded-lg">
@@ -286,7 +311,7 @@
             <span class="skill-tag px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full">arq + Redis</span>
             <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Langfuse</span>
             <span class="skill-tag px-3 py-1 text-sm bg-orange-50 text-orange-700 rounded-full">Ollama (on-prem)</span>
-            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Python 3.12+</span>
+            <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Python 3.14</span>
             <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">Pydantic v2</span>
             <span class="skill-tag px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">mypy strict</span>
           </div>
@@ -294,16 +319,16 @@
       </div>
     </section>
 
-    <!-- Featured: IronTide -->
+    <!-- Systems depth: IronTide -->
     <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-6 gradient-text">Systems: IronTide</h2>
+      <h2 class="text-2xl font-bold mb-6 gradient-text">Systems depth: IronTide</h2>
 
       <div class="card bg-white rounded-xl border border-gray-200 overflow-hidden">
         <div class="p-8">
           <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
             <div>
               <h3 class="text-2xl font-bold">IronTide</h3>
-              <p class="text-gray-500 mt-1">From-scratch Rust BitTorrent engine — libtorrent-rasterbar feature parity</p>
+              <p class="text-gray-500 mt-1">From-scratch Rust BitTorrent engine — 31 BEPs, 17-crate workspace, 2,400+ tests</p>
             </div>
             <div class="flex gap-2">
               <a href="https://codeberg.org/alan090/irontide" class="px-3 py-1 text-sm bg-blue-50 text-primary rounded-full hover:bg-blue-100 transition">Codeberg</a>
@@ -312,17 +337,16 @@
           </div>
 
           <p class="text-gray-700 mb-4">
-            A full BitTorrent engine written in Rust from first principles, targeting parity with
-            <a href="https://libtorrent.org" class="text-primary hover:underline">libtorrent-rasterbar</a> — the
-            15-year C++ reference library behind qBittorrent, Deluge, and Transmission. IronTide ships a 17-crate
-            modular workspace, 31 BEP protocol implementations, async actor architecture (tokio
-            <code class="text-sm bg-gray-100 px-1 rounded">select!</code> loops with backpressure), pluggable
-            backends for crypto and disk I/O, a Slint desktop GUI, and an axum HTTP REST API with an HTMX web UI.
+            A full BitTorrent engine written in Rust from first principles, built to exercise the systems chops
+            behind the AI work above: async actor architecture (tokio
+            <code class="text-sm bg-gray-100 px-1 rounded">select!</code> loops with backpressure),
+            pluggable backends for crypto and disk I/O, a Slint desktop GUI, and an axum HTTP REST API with an
+            HTMX web UI and qBittorrent-WebUI-v2 compatibility.
           </p>
 
           <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 overflow-x-auto">
             <pre class="text-sm text-gray-700 leading-relaxed">
-  CLI ── irontide-gui (Slint) ── Web UI (HTMX) ──► axum HTTP API (20 endpoints)
+  CLI ── irontide-gui (Slint) ── Web UI (HTMX) ──► axum HTTP API (20+ endpoints)
                                                           │
                                                           ▼
                                                    SessionActor
@@ -352,8 +376,8 @@
               <div class="text-sm text-gray-600">BEPs implemented</div>
             </div>
             <div class="text-center p-3 bg-green-50 rounded-lg">
-              <div class="text-2xl font-bold text-green-600">2,312</div>
-              <div class="text-sm text-gray-600">Tests, 0 clippy</div>
+              <div class="text-2xl font-bold text-green-600">2,400+</div>
+              <div class="text-sm text-gray-600">Tests, 0 clippy warnings</div>
             </div>
             <div class="text-center p-3 bg-orange-50 rounded-lg">
               <div class="text-2xl font-bold text-orange-600">63 MB/s</div>
@@ -484,17 +508,17 @@
             </tr>
             <tr>
               <td class="px-6 py-3 font-medium">Infrastructure</td>
-              <td class="px-6 py-3 text-gray-600">Docker Compose, Azure Bicep, Container Apps, ACR, Redis, on-prem deployment</td>
+              <td class="px-6 py-3 text-gray-600">Docker Compose, Azure Bicep, Container Apps, ACR, Redis, MinIO, on-prem deployment</td>
               <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader</td>
             </tr>
             <tr>
               <td class="px-6 py-3 font-medium">MLOps / Observability</td>
-              <td class="px-6 py-3 text-gray-600">Langfuse (self-hosted), structured prompt versioning, tracing, fail-silent callbacks</td>
+              <td class="px-6 py-3 text-gray-600">Langfuse (self-hosted v3), structured prompt versioning, tracing, real-LLM integration tests</td>
               <td class="px-6 py-3 text-gray-500">Supply Chain Agents, Rung Reader</td>
             </tr>
             <tr>
               <td class="px-6 py-3 font-medium">CI/CD &amp; Quality</td>
-              <td class="px-6 py-3 text-gray-600">GitHub Actions, pytest, mypy strict, ruff, cargo clippy (zero warnings)</td>
+              <td class="px-6 py-3 text-gray-600">GitHub Actions, pytest (real-LLM integration gated), mypy strict, ruff, cargo clippy (zero warnings)</td>
               <td class="px-6 py-3 text-gray-500">All projects</td>
             </tr>
             <tr>
